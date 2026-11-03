@@ -1,0 +1,24 @@
+Seed=42  Records=60
+
+Count per category:
+  Apparel     17
+  Electronics 12
+  Home        6
+  Footwear    8
+  Beauty      17
+
+Count per status:
+  Placed      8
+  Shipped     10
+  Delivered   28
+  Returned    6
+  Refunded    8
+
+delayed_shipment=True: 13/60 = 21.7%  (band 10-30%: OK)
+
+First 5 records:
+  {'record_id': 'NYK-1001', 'category': 'Footwear', 'status': 'Delivered', 'order_value_inr': 3052, 'days_since_created': 10, 'delayed_shipment': False}
+  {'record_id': 'NYK-1002', 'category': 'Home', 'status': 'Placed', 'order_value_inr': 4766, 'days_since_created': 0, 'delayed_shipment': False}
+  {'record_id': 'NYK-1003', 'category': 'Beauty', 'status': 'Delivered', 'order_value_inr': 1151, 'days_since_created': 19, 'delayed_shipment': False}
+  {'record_id': 'NYK-1004', 'category': 'Footwear', 'status': 'Placed', 'order_value_inr': 4235, 'days_since_created': 1, 'delayed_shipment': False}
+  {'record_id': 'NYK-1005', 'category': 'Beauty', 'status': 'Returned', 'order_value_inr': 852, 'days_since_created': 29, 'delayed_shipment': False}
