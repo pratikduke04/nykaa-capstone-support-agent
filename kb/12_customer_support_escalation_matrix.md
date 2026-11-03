@@ -1,0 +1,2 @@
+# Customer-support escalation matrix
+Support issues are handled in three levels. Level 1 is the chat and call support agent, who resolves order status, cancellation and policy queries within 24 hours. Level 2 is the senior support team, which handles delayed shipments, refund disputes and damaged-item claims that remain unresolved after 24 hours. Level 3 is the Support Manager, who handles cases unresolved after 72 hours, payment disputes above 5,000 rupees and any legal or consumer-forum complaint.

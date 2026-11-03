@@ -1,0 +1,2 @@
+# Size-exchange policy
+Size exchanges are available for Apparel and Footwear within 15 days of delivery, subject to stock in the requested size. The item must be unworn and unwashed, with its tags attached. Only one size exchange is allowed per order item, and the replacement is delivered free of cost once the pickup is complete. If the requested size is out of stock, the customer can choose a refund instead.

@@ -1,0 +1,2 @@
+# Warranty terms by category
+Warranty applies mainly to Electronics and select Home appliances, and it covers manufacturing defects only. Electronics such as trimmers, straighteners and hair dryers carry a 12-month brand warranty from the date of delivery. Home appliances carry a 6-month warranty. Apparel, Footwear and Beauty products have no warranty, although a manufacturing defect found inside the return window qualifies for a free replacement. Damage caused by water, drops or unauthorised repair voids the warranty.

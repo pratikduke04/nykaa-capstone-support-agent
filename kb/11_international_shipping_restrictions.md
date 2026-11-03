@@ -1,0 +1,2 @@
+# International shipping restrictions
+International shipping is offered only to a limited set of countries and only for non-restricted products. Aerosols, flammable perfumes, batteries and large-volume liquids cannot be shipped abroad because of airline safety rules. International orders cannot be paid for with Cash on Delivery, and the customer is responsible for any import duties and taxes charged at the destination. International orders cannot be returned or exchanged, although a damaged item can still be claimed within 48 hours.

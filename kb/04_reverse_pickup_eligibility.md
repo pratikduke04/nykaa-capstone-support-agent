@@ -1,0 +1,2 @@
+# Reverse-pickup eligibility
+Reverse pickup is available for eligible returns at most serviceable pin codes. An item is eligible if it is inside its category return window and is not on the non-returnable list, which includes opened Beauty products, innerwear and gift cards. The courier makes up to 2 pickup attempts within 3 business days of the return being approved. If the pin code is not serviceable for pickup, the customer can drop the parcel at the nearest partner courier outlet and Nykaa reimburses the shipping cost.

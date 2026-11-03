@@ -1,0 +1,2 @@
+# COD refund timelines
+Refunds for Cash on Delivery orders are paid by bank transfer, since there is no card or wallet to credit. The customer must share valid bank account details in the app after the return is approved. Once the returned item passes the quality check at the warehouse, the refund is started within 2 business days and reaches the bank account in 3 to 5 business days. Customers may choose Nykaa store credit instead, which is added to their account instantly after the quality check.

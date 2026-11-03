@@ -1,0 +1,2 @@
+# Damaged-item claim process
+Damaged, defective or wrong items must be reported within 48 hours of delivery through the Help section of the app. The customer uploads clear photos of the product, the outer packaging and the shipping label. After verification within 2 business days, Nykaa offers a free replacement or a full refund, and no reverse-pickup charge applies. Claims reported after 48 hours are reviewed case by case and may be rejected.

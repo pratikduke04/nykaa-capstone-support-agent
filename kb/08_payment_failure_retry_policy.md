@@ -1,0 +1,2 @@
+# Payment-failure and retry policy
+If a payment fails the order is not placed, and any amount already debited by the bank is reversed automatically within 5 to 7 business days. The customer can retry the payment up to 3 times, using the same or a different method, within 30 minutes, after which the cart is released. For UPI and card failures the customer should first check whether the bank has already debited the amount before retrying. Repeated card failures can be avoided by switching to UPI, net banking or Cash on Delivery where the pin code and order value allow it.

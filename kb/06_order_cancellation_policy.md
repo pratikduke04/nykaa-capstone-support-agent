@@ -1,0 +1,2 @@
+# Order-cancellation policy
+An order can be cancelled free of charge until it is shipped, so orders in Placed status can be cancelled instantly from the My Orders page. Once an order has shipped it can no longer be cancelled, and the customer should refuse delivery or request a return after receiving it. Prepaid cancellations are refunded to the original payment method within 5 to 7 business days. Cancelling a Cash on Delivery order needs no refund because no money has been collected.

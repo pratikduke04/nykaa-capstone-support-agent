@@ -1,0 +1,2 @@
+# Delivery SLAs
+Standard delivery in metro cities takes 2 to 4 business days from the date the order is shipped. Non-metro and remote pin codes take 5 to 8 business days. Express delivery, where available, promises delivery within 24 to 48 hours for an extra fee. A shipment is treated as delayed if it has not arrived 2 business days after the promised date, and the customer can then ask for escalation.

@@ -1,0 +1,2 @@
+# Loyalty-points redemption policy
+Customers earn 1 loyalty point for every 100 rupees spent on an order, and the points are credited 7 days after delivery. Each point is worth 0.5 rupees at redemption, and points can cover up to 20 percent of the order value, with a minimum redemption of 200 points. Points expire 12 months after they are earned. Points earned on an order are reversed if that order is returned or refunded.
