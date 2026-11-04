@@ -16,3 +16,6 @@ I completed the **Nykaa (E-commerce & Retail)** track. Everything runs under MOC
 Measured top-1 cosine similarities (all-MiniLM-L6-v2):
 - kb_fixed:    in-scope min 0.411, out-of-scope max 0.136 → threshold 0.27
 - kb_sentence: in-scope min 0.386, out-of-scope max 0.138 → threshold 0.26
+
+## Part 1, Task 5: chunking evaluation
+I would deploy the fixed-size-with-overlap collection (kb_fixed). Over the 7 queries it scored mean precision 0.690 and mean recall 1.000, against 0.667 and 0.952 for kb_sentence, and it was the only strategy to retrieve all three relevant documents for the multi-document query Q7 (recall 3/3 vs 2/3, because sentence retrieval missed the reverse-pickup document). The precision margin is small (0.023) and partly reflects that overlapping chunks from one document collapse to a single document after deduplication (Q3: 1/1 vs 1/2), so the decision rests mainly on recall; the sentence collection won only Q6 (1/1 vs 1/2). One known weakness is that fixed chunks cut sentences, which produces duplicated, garbled text when chunks are stitched together; I mitigate this in the crew by expanding retrieved chunks to their parent document.
