@@ -1,0 +1,116 @@
+==========================================================================================
+Q1: How many days do I have to return a hair dryer?
+    relevant docs = ['01']  (n = 1)
+  [kb_fixed]
+    top-3 chunks -> docs : ['01', '06', '11']
+    unique docs after dedup   : ['01', '06', '11']  (u = 3)
+    relevant hits             : ['01']  (h = 1)
+    precision = h/u = 1/3 = 0.333
+    recall    = h/n = 1/1 = 1.000
+  [kb_sentence]
+    top-3 chunks -> docs : ['01', '05', '02']
+    unique docs after dedup   : ['01', '05', '02']  (u = 3)
+    relevant hits             : ['01']  (h = 1)
+    precision = h/u = 1/3 = 0.333
+    recall    = h/n = 1/1 = 1.000
+==========================================================================================
+Q2: How long does a refund take for a cash on delivery order?
+    relevant docs = ['02']  (n = 1)
+  [kb_fixed]
+    top-3 chunks -> docs : ['06', '02', '06']
+    unique docs after dedup   : ['06', '02']  (u = 2)
+    relevant hits             : ['02']  (h = 1)
+    precision = h/u = 1/2 = 0.500
+    recall    = h/n = 1/1 = 1.000
+  [kb_sentence]
+    top-3 chunks -> docs : ['02', '02', '06']
+    unique docs after dedup   : ['02', '06']  (u = 2)
+    relevant hits             : ['02']  (h = 1)
+    precision = h/u = 1/2 = 0.500
+    recall    = h/n = 1/1 = 1.000
+==========================================================================================
+Q3: Can I cancel my order after it has shipped?
+    relevant docs = ['06']  (n = 1)
+  [kb_fixed]
+    top-3 chunks -> docs : ['06', '06', '06']
+    unique docs after dedup   : ['06']  (u = 1)
+    relevant hits             : ['06']  (h = 1)
+    precision = h/u = 1/1 = 1.000
+    recall    = h/n = 1/1 = 1.000
+  [kb_sentence]
+    top-3 chunks -> docs : ['06', '06', '11']
+    unique docs after dedup   : ['06', '11']  (u = 2)
+    relevant hits             : ['06']  (h = 1)
+    precision = h/u = 1/2 = 0.500
+    recall    = h/n = 1/1 = 1.000
+==========================================================================================
+Q4: What warranty comes with a trimmer?
+    relevant docs = ['05']  (n = 1)
+  [kb_fixed]
+    top-3 chunks -> docs : ['05', '05', '05']
+    unique docs after dedup   : ['05']  (u = 1)
+    relevant hits             : ['05']  (h = 1)
+    precision = h/u = 1/1 = 1.000
+    recall    = h/n = 1/1 = 1.000
+  [kb_sentence]
+    top-3 chunks -> docs : ['05', '05', '05']
+    unique docs after dedup   : ['05']  (u = 1)
+    relevant hits             : ['05']  (h = 1)
+    precision = h/u = 1/1 = 1.000
+    recall    = h/n = 1/1 = 1.000
+==========================================================================================
+Q5: My parcel arrived broken, what should I do?
+    relevant docs = ['10']  (n = 1)
+  [kb_fixed]
+    top-3 chunks -> docs : ['10', '11', '11']
+    unique docs after dedup   : ['10', '11']  (u = 2)
+    relevant hits             : ['10']  (h = 1)
+    precision = h/u = 1/2 = 0.500
+    recall    = h/n = 1/1 = 1.000
+  [kb_sentence]
+    top-3 chunks -> docs : ['10', '11', '04']
+    unique docs after dedup   : ['10', '11', '04']  (u = 3)
+    relevant hits             : ['10']  (h = 1)
+    precision = h/u = 1/3 = 0.333
+    recall    = h/n = 1/1 = 1.000
+==========================================================================================
+Q6: Can I swap my sandals for a bigger size?
+    relevant docs = ['09']  (n = 1)
+  [kb_fixed]
+    top-3 chunks -> docs : ['09', '09', '01']
+    unique docs after dedup   : ['09', '01']  (u = 2)
+    relevant hits             : ['09']  (h = 1)
+    precision = h/u = 1/2 = 0.500
+    recall    = h/n = 1/1 = 1.000
+  [kb_sentence]
+    top-3 chunks -> docs : ['09', '09', '09']
+    unique docs after dedup   : ['09']  (u = 1)
+    relevant hits             : ['09']  (h = 1)
+    precision = h/u = 1/1 = 1.000
+    recall    = h/n = 1/1 = 1.000
+==========================================================================================
+Q7: My shoes do not fit, can you pick them up and refund me?
+    relevant docs = ['01', '04', '09']  (n = 3)
+  [kb_fixed]
+    top-3 chunks -> docs : ['01', '09', '04']
+    unique docs after dedup   : ['01', '09', '04']  (u = 3)
+    relevant hits             : ['01', '09', '04']  (h = 3)
+    precision = h/u = 3/3 = 1.000
+    recall    = h/n = 3/3 = 1.000
+  [kb_sentence]
+    top-3 chunks -> docs : ['09', '01', '09']
+    unique docs after dedup   : ['09', '01']  (u = 2)
+    relevant hits             : ['09', '01']  (h = 2)
+    precision = h/u = 2/2 = 1.000
+    recall    = h/n = 2/3 = 0.667
+
+==========================================================================================
+SUMMARY over 7 queries (top-3 chunks, macro-average)
+==========================================================================================
+collection      mean precision   mean recall
+kb_fixed                 0.690         1.000
+   precision = (0.333 + 0.500 + 1.000 + 1.000 + 0.500 + 0.500 + 1.000) / 7
+   recall    = (1.000 + 1.000 + 1.000 + 1.000 + 1.000 + 1.000 + 1.000) / 7
+kb_sentence              0.667         0.952
+   precision = (0.333 + 0.500 + 0.500 + 1.000 + 0.333 + 1.000 + 1.000) / 7
+   recall    = (1.000 + 1.000 + 1.000 + 1.000 + 1.000 + 1.000 + 0.667) / 7
