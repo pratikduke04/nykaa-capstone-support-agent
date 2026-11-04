@@ -9,15 +9,15 @@ environment: MOCK_LLM=1  CREWAI_DISABLE_TELEMETRY=true  CREWAI_TRACING_ENABLED=f
   masked question    : How long does a refund take for a cash on delivery order?   (PII masked: none)
   effective question : How long does a refund take for a cash on delivery order?
   tools invoked      : ['rag_lookup']   |  LLM calls: 3
-  AnswerSchema valid : True  intent=policy  grounded=True  sources=['06']  escalate=False
+  AnswerSchema valid : True  intent=policy  grounded=True  sources=['06', '02']  escalate=False
   output guardrail   : passed 
-  ANSWER: According to our policy: Once an order has shipped it can no longer be cancelled, and the customer should refuse delivery or request a return after receiving it. Prepaid cancellations are refunded to the original payment method within 5 to 7 business days. Cancelling a Cash on Delivery order needs no refund because no money has been collected.
+  ANSWER: According to our policy: Prepaid cancellations are refunded to the original payment method within 5 to 7 business days. Cancelling a Cash on Delivery order needs no refund because no money has been collected. Once the returned item passes the quality check at the warehouse, the refund is started within 2 business days and reaches the bank account in 3 to 5 business days.
 
 [query 2 - ORDER question  -> expect rag_lookup + check_order_status]
   customer typed     : Where is my order NYK-1045?
   masked question    : Where is my order NYK-1045?   (PII masked: none)
   effective question : Where is my order NYK-1045?
   tools invoked      : ['rag_lookup', 'check_order_status']   |  LLM calls: 5
-  AnswerSchema valid : True  intent=policy_and_order  grounded=True  sources=['02']  escalate=True
+  AnswerSchema valid : True  intent=order  grounded=True  sources=[]  escalate=True
   output guardrail   : passed 
-  ANSWER: According to our policy: Refunds for Cash on Delivery orders are paid by bank transfer, since there is no card or wallet to credit. Order NYK-1045 is currently Returned (order value Rs 2,753). Our system recommends escalating it to the support team (escalation score 0.67).
+  ANSWER: Order NYK-1045 is currently Returned (order value Rs 2,753). Our system recommends escalating it to the support team (escalation score 0.67).

@@ -12,9 +12,10 @@ import os
 
 from crewai import Agent, Crew, Process, Task
 
+
 from crew.compose import extract_tagged
 from crew.mock_llm import CALL_LOG, MockLLM
-from crew.mock_logic import ORDER_ID_RE
+from crew.mock_logic import ORDER_ID_RE, strip_identifiers
 from crew.settings import no_trace_kwargs, structured_output_kwargs
 from crew.tools import CheckOrderStatusTool, RagLookupTool, TOOL_CALLS
 
@@ -54,7 +55,8 @@ def run_crew(effective_question: str) -> dict:
     q = effective_question
 
     t_retrieve = Task(
-        description=f"Search the policy knowledge base for the customer's question. [[QUESTION]]{q}[[/QUESTION]]",
+        description=f"Search the policy knowledge base for the customer's question. "
+                    f"[[QUESTION]]{strip_identifiers(q) or q}[[/QUESTION]]",
         expected_output="The policy search result.", agent=retrieval_agent)
     tasks, context = [t_retrieve], [t_retrieve]
 

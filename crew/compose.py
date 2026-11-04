@@ -12,10 +12,13 @@ import math
 import re
 
 from crew.schemas import FALLBACK_ANSWER, AnswerSchema, OrderInfo
+from crew.mock_logic import strip_identifiers
+from crew.schemas import FALLBACK_ANSWER, AnswerSchema, OrderInfo
 
 MAX_SENTENCES = 3
 PRODUCT_WEIGHT = 0.25     # product words (hair dryer) count less than the category they imply (Electronics)
 NO_NUMBER_FACTOR = 0.25  # ...and sentences WITHOUT a number are down-weighted for those questions
+MIN_POLICY_SCORE = 2.0    # with an order found, policy text is added only if it matches the question this well
 NUMBER_BONUS = 1.0        # "how long / how many / when" questions prefer sentences that contain numbers
 STOP = {
     "the", "and", "for", "are", "you", "can", "how", "what", "does", "did", "was", "with", "this", "that",
@@ -24,6 +27,7 @@ STOP = {
     "than", "then", "them", "they", "these", "those", "per", "also", "may", "might", "must", "need", "want",
     "long", "take", "takes", "please", "tell", "know", "much", "many", "make", "being", "been", "were", "soon",
     "after", "again", "can't", "cant", "just", "like", "some", "does", "doing", "done", "use",
+    "order", "orders",   # too generic here: almost every policy sentence mentions an order
 }
 # Map everyday product words to the category words the policies use (the KB talks about categories).
 CATEGORY_WORDS = {
@@ -150,10 +154,18 @@ def select_sentences(question: str, docs: list[dict], limit: int = MAX_SENTENCES
     return [(c[4], c[5]) for c in best]
 
 
+def top_policy_score(question: str, docs: list[dict]) -> float:
+    idf, qw = _kb_idf(), weighted_question_stems(question)
+    return max((score_sentence(s, question, qw, idf) for d in docs for s in split_sentences(d["text"])), default=0.0)
+
+
 def compose_answer(question: str, retrieval, lookup) -> AnswerSchema:
+    question = strip_identifiers(question) or question
     docs = (retrieval or {}).get("documents") or []
     policy_ok = bool(retrieval and retrieval.get("grounded") and docs)
     order = lookup if (lookup and lookup.get("found")) else None
+    if policy_ok and order and top_policy_score(question, docs) < MIN_POLICY_SCORE:
+        policy_ok = False                         # an order-status question: do not pad it with unrelated policy text
     top_sim = float((retrieval or {}).get("top_similarity", 0.0))
 
     parts, sources = [], []

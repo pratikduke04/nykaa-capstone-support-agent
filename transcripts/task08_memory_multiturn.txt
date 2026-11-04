@@ -9,9 +9,9 @@ environment: MOCK_LLM=1  CREWAI_DISABLE_TELEMETRY=true  CREWAI_TRACING_ENABLED=f
   masked question    : Where is my order NYK-1045?   (PII masked: none)
   effective question : Where is my order NYK-1045?
   tools invoked      : ['rag_lookup', 'check_order_status']   |  LLM calls: 5
-  AnswerSchema valid : True  intent=policy_and_order  grounded=True  sources=['02']  escalate=True
+  AnswerSchema valid : True  intent=order  grounded=True  sources=[]  escalate=True
   output guardrail   : passed 
-  ANSWER: According to our policy: Refunds for Cash on Delivery orders are paid by bank transfer, since there is no card or wallet to credit. Order NYK-1045 is currently Returned (order value Rs 2,753). Our system recommends escalating it to the support team (escalation score 0.67).
+  ANSWER: Order NYK-1045 is currently Returned (order value Rs 2,753). Our system recommends escalating it to the support team (escalation score 0.67).
 
 [turn 2]
   customer typed     : Can I still cancel it?
@@ -20,21 +20,21 @@ environment: MOCK_LLM=1  CREWAI_DISABLE_TELEMETRY=true  CREWAI_TRACING_ENABLED=f
   tools invoked      : ['rag_lookup', 'check_order_status']   |  LLM calls: 5
   AnswerSchema valid : True  intent=policy_and_order  grounded=True  sources=['06']  escalate=True
   output guardrail   : passed 
-  ANSWER: According to our policy: An order can be cancelled free of charge until it is shipped, so orders in Placed status can be cancelled instantly from the My Orders page. Once an order has shipped it can no longer be cancelled, and the customer should refuse delivery or request a return after receiving it. Cancelling a Cash on Delivery order needs no refund because no money has been collected. Order NYK-1045 is currently Returned (order value Rs 2,753). Our system recommends escalating it to the support team (escalation score 0.67).
+  ANSWER: According to our policy: An order can be cancelled free of charge until it is shipped, so orders in Placed status can be cancelled instantly from the My Orders page. Once an order has shipped it can no longer be cancelled, and the customer should refuse delivery or request a return after receiving it. Prepaid cancellations are refunded to the original payment method within 5 to 7 business days. Order NYK-1045 is currently Returned (order value Rs 2,753). Our system recommends escalating it to the support team (escalation score 0.67).
 
 [turn 3]
   customer typed     : Should it be escalated?
   masked question    : Should it be escalated?   (PII masked: none)
   effective question : Should it be escalated? (regarding order NYK-1045)
   tools invoked      : ['rag_lookup', 'check_order_status']   |  LLM calls: 5
-  AnswerSchema valid : True  intent=policy_and_order  grounded=True  sources=['11', '07']  escalate=True
+  AnswerSchema valid : True  intent=order  grounded=True  sources=[]  escalate=True
   output guardrail   : passed 
-  ANSWER: According to our policy: International orders cannot be paid for with Cash on Delivery, and the customer is responsible for any import duties and taxes charged at the destination. International orders cannot be returned or exchanged, although a damaged item can still be claimed within 48 hours. Customers earn 1 loyalty point for every 100 rupees spent on an order, and the points are credited 7 days after delivery. Order NYK-1045 is currently Returned (order value Rs 2,753). Our system recommends escalating it to the support team (escalation score 0.67).
+  ANSWER: Order NYK-1045 is currently Returned (order value Rs 2,753). Our system recommends escalating it to the support team (escalation score 0.67).
 
   stored history for session 'alice' (6 messages):
     human: Where is my order NYK-1045?
-       ai: According to our policy: Refunds for Cash on Delivery orders are paid by bank transfer, since there is no card
+       ai: Order NYK-1045 is currently Returned (order value Rs 2,753). Our system recommends escalating it to the suppor
     human: Can I still cancel it?
        ai: According to our policy: An order can be cancelled free of charge until it is shipped, so orders in Placed sta
     human: Should it be escalated?
-       ai: According to our policy: International orders cannot be paid for with Cash on Delivery, and the customer is re
+       ai: Order NYK-1045 is currently Returned (order value Rs 2,753). Our system recommends escalating it to the suppor

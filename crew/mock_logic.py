@@ -19,6 +19,12 @@ import re
 
 ORDER_ID_RE = re.compile(r"\bNYK-\d{4}\b", re.IGNORECASE)
 
+def strip_identifiers(text: str) -> str:
+    """Remove order ids, the '(regarding order ...)' tag and PII placeholders: they only add noise to policy search."""
+    t = re.sub(r"\(regarding order [^)]*\)", " ", text)
+    t = ORDER_ID_RE.sub(" ", t)
+    t = re.sub(r"\[(?:PHONE|CARD_LAST4|CARD_NUMBER)\]", " ", t)
+    return re.sub(r"\s+", " ", t).strip()
 
 def as_text(content) -> str:
     if content is None:
