@@ -24,3 +24,7 @@ SIMILARITY_THRESHOLD = {
     COLLECTION_FIXED: 0.27,
     COLLECTION_SENTENCE: 0.26,
 }
+
+# Answer-quality filter used by the crew's RAG tool (NOT the fallback threshold):
+# only keep retrieved documents whose best chunk is within this margin of the top-1 chunk.
+RELATIVE_MARGIN = 0.15

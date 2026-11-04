@@ -1,0 +1,18 @@
+FORMULA: score = open_flag * (0.5*delayed + 0.5*days_since_created/30); escalate if >= 0.40
+
+Open orders (Placed/Shipped/Returned): 24 of 60
+  days_since_created among open orders: median=3.0, 80th percentile=11.6, max=29
+  escalation_score among open orders  : median=0.059, 80th percentile=0.297, max=0.733
+  threshold 0.40 flags 4 of 24 open orders (17%)
+  non-delayed open order needs >= 24 days to escalate
+
+delayed + open (should escalate):
+  {'found': True, 'record_id': 'NYK-1045', 'status': 'Returned', 'order_value_inr': 2753, 'escalation_score': 0.667, 'escalate_recommended': True, 'delayed_shipment': True, 'days_since_created': 10}
+on-time + open, young (no escalation):
+  {'found': True, 'record_id': 'NYK-1002', 'status': 'Placed', 'order_value_inr': 4766, 'escalation_score': 0.0, 'escalate_recommended': False, 'delayed_shipment': False, 'days_since_created': 0}
+on-time + open, very old (escalates on recency):
+  {'found': True, 'record_id': 'NYK-1005', 'status': 'Returned', 'order_value_inr': 852, 'escalation_score': 0.483, 'escalate_recommended': True, 'delayed_shipment': False, 'days_since_created': 29}
+delayed but already Delivered (closed -> 0):
+  {'found': True, 'record_id': 'NYK-1006', 'status': 'Delivered', 'order_value_inr': 1577, 'escalation_score': 0.0, 'escalate_recommended': False, 'delayed_shipment': True, 'days_since_created': 6}
+unknown id:
+  {'found': False, 'record_id': 'NYK-9999', 'error': "No order found with id 'NYK-9999'"}
