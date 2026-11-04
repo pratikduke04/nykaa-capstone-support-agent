@@ -1,0 +1,18 @@
+
+================================================================================================
+TASK 8: SEPARATE fresh conversation - no state carried over (session 'bob')
+================================================================================================
+environment: MOCK_LLM=1  CREWAI_DISABLE_TELEMETRY=true  CREWAI_TRACING_ENABLED=false  (no API keys used)
+
+[fresh turn 1 (same wording as alice's turn 2, but no history)]
+  customer typed     : Can I still cancel it?
+  masked question    : Can I still cancel it?   (PII masked: none)
+  effective question : Can I still cancel it?
+  tools invoked      : ['rag_lookup']   |  LLM calls: 3
+  AnswerSchema valid : True  intent=policy  grounded=True  sources=['06']  escalate=False
+  output guardrail   : passed 
+  ANSWER: According to our policy: An order can be cancelled free of charge until it is shipped, so orders in Placed status can be cancelled instantly from the My Orders page. Once an order has shipped it can no longer be cancelled, and the customer should refuse delivery or request a return after receiving it. Prepaid cancellations are refunded to the original payment method within 5 to 7 business days.
+
+  stored history for session 'bob' (2 messages):
+    human: Can I still cancel it?
+       ai: According to our policy: An order can be cancelled free of charge until it is shipped, so orders in Placed sta
