@@ -13,3 +13,14 @@ COLLECTION_SENTENCE = "kb_sentence"    # one-sentence chunks
 # Fixed-size chunking parameters (measured in WORDS so we never cut mid-word)
 FIXED_CHUNK_WORDS = 40
 FIXED_OVERLAP_WORDS = 10
+
+# ---- Task 4: retrieval + calibrated "I don't know" threshold ----
+TOP_K = 3
+
+# Top-1 cosine-similarity cut-off PER COLLECTION (the two collections have different
+# similarity scales). Leave as None until you have run:  python -m rag.calibrate
+# then paste the measured values here.
+SIMILARITY_THRESHOLD = {
+    COLLECTION_FIXED: 0.27,
+    COLLECTION_SENTENCE: 0.26,
+}

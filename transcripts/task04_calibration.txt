@@ -1,0 +1,50 @@
+================================================================================
+COLLECTION: kb_fixed
+================================================================================
+
+In-scope queries (top-1 similarity):
+  0.632  Are opened cosmetics returnable?
+  0.411  How soon will my COD money come back?
+  0.757  How many loyalty points do I earn per purchase?
+  0.802  How long does standard delivery take in a metro city?
+  0.557  Who handles complaints that nobody has resolved after three days?
+  0.690  Can I ship perfume abroad?
+  0.594  Can I pay again if my UPI payment failed?
+
+Out-of-scope queries (top-1 similarity):
+  0.059  What is the capital of France?
+  0.103  Recommend a good laptop for gaming
+  0.077  How do I bake a chocolate cake?
+  0.136  Explain quantum computing in simple words
+  0.109  Who won the cricket world cup?
+
+Lowest in-scope  = 0.411
+Highest out-of-scope = 0.136
+Clusters separate (gap 0.275).
+==> SUGGESTED THRESHOLD for kb_fixed: 0.27
+
+================================================================================
+COLLECTION: kb_sentence
+================================================================================
+
+In-scope queries (top-1 similarity):
+  0.707  Are opened cosmetics returnable?
+  0.386  How soon will my COD money come back?
+  0.712  How many loyalty points do I earn per purchase?
+  0.878  How long does standard delivery take in a metro city?
+  0.539  Who handles complaints that nobody has resolved after three days?
+  0.659  Can I ship perfume abroad?
+  0.640  Can I pay again if my UPI payment failed?
+
+Out-of-scope queries (top-1 similarity):
+  0.087  What is the capital of France?
+  0.118  Recommend a good laptop for gaming
+  0.131  How do I bake a chocolate cake?
+  0.138  Explain quantum computing in simple words
+  0.117  Who won the cricket world cup?
+
+Lowest in-scope  = 0.386
+Highest out-of-scope = 0.138
+Clusters separate (gap 0.249).
+==> SUGGESTED THRESHOLD for kb_sentence: 0.26
+

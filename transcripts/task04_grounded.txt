@@ -1,0 +1,84 @@
+==========================================================================================
+COLLECTION: kb_sentence   threshold = 0.26
+==========================================================================================
+
+Q: How many days do I have to return a hair dryer?
+  top-1 sim = 0.455  -> ANSWERED
+  A: According to our policy: Apparel and Footwear can be returned within 15 days if they are unworn, unwashed and have all tags attached. Electronics such as trimmers, straighteners and hair dryers carry a 12-month brand warranty from the date of delivery. Once the returned item passes the quality check at the warehouse, the refund is started within 2 business days and reaches the bank account in 3 to 5 business days.
+  sources: ['01_return_window_by_category::sent::2', '05_warranty_terms_by_category::sent::1', '02_cod_refund_timelines::sent::2']
+
+Q: How long does a refund take for a cash on delivery order?
+  top-1 sim = 0.692  -> ANSWERED
+  A: According to our policy: Refunds for Cash on Delivery orders are paid by bank transfer, since there is no card or wallet to credit. Once the returned item passes the quality check at the warehouse, the refund is started within 2 business days and reaches the bank account in 3 to 5 business days. Cancelling a Cash on Delivery order needs no refund because no money has been collected.
+  sources: ['02_cod_refund_timelines::sent::0', '02_cod_refund_timelines::sent::2', '06_order_cancellation_policy::sent::3']
+
+Q: Can I cancel my order after it has shipped?
+  top-1 sim = 0.744  -> ANSWERED
+  A: According to our policy: An order can be cancelled free of charge until it is shipped, so orders in Placed status can be cancelled instantly from the My Orders page. Once an order has shipped it can no longer be cancelled, and the customer should refuse delivery or request a return after receiving it. International orders cannot be returned or exchanged, although a damaged item can still be claimed within 48 hours.
+  sources: ['06_order_cancellation_policy::sent::0', '06_order_cancellation_policy::sent::1', '11_international_shipping_restrictions::sent::3']
+
+Q: What warranty comes with a trimmer?
+  top-1 sim = 0.624  -> ANSWERED
+  A: According to our policy: Electronics such as trimmers, straighteners and hair dryers carry a 12-month brand warranty from the date of delivery. Damage caused by water, drops or unauthorised repair voids the warranty. Home appliances carry a 6-month warranty.
+  sources: ['05_warranty_terms_by_category::sent::1', '05_warranty_terms_by_category::sent::4', '05_warranty_terms_by_category::sent::2']
+
+Q: My parcel arrived broken, what should I do?
+  top-1 sim = 0.560  -> ANSWERED
+  A: According to our policy: Damaged, defective or wrong items must be reported within 48 hours of delivery through the Help section of the app. International orders cannot be returned or exchanged, although a damaged item can still be claimed within 48 hours. If the pin code is not serviceable for pickup, the customer can drop the parcel at the nearest partner courier outlet and Nykaa reimburses the shipping cost.
+  sources: ['10_damaged_item_claim_process::sent::0', '11_international_shipping_restrictions::sent::3', '04_reverse_pickup_eligibility::sent::3']
+
+Q: Can I swap my sandals for a bigger size?
+  top-1 sim = 0.386  -> ANSWERED
+  A: According to our policy: Size exchanges are available for Apparel and Footwear within 15 days of delivery, subject to stock in the requested size. If the requested size is out of stock, the customer can choose a refund instead. Only one size exchange is allowed per order item, and the replacement is delivered free of cost once the pickup is complete.
+  sources: ['09_size_exchange_policy::sent::0', '09_size_exchange_policy::sent::3', '09_size_exchange_policy::sent::2']
+
+Q: My shoes do not fit, can you pick them up and refund me?
+  top-1 sim = 0.513  -> ANSWERED
+  A: According to our policy: If the requested size is out of stock, the customer can choose a refund instead. Apparel and Footwear can be returned within 15 days if they are unworn, unwashed and have all tags attached. Size exchanges are available for Apparel and Footwear within 15 days of delivery, subject to stock in the requested size.
+  sources: ['09_size_exchange_policy::sent::3', '01_return_window_by_category::sent::2', '09_size_exchange_policy::sent::0']
+
+Q: What is the best movie of the year?
+  top-1 sim = 0.168  -> FALLBACK (I don't know)
+  A: I don't have enough information in the Nykaa policy knowledge base to answer that. Please contact customer support.
+==========================================================================================
+COLLECTION: kb_fixed   threshold = 0.27
+==========================================================================================
+
+Q: How many days do I have to return a hair dryer?
+  top-1 sim = 0.478  -> ANSWERED
+  A: According to our policy: Return windows depend on the product category and start from the delivery date. Beauty items can be returned within 15 days only if the seal is unbroken, because opened cosmetics cannot be resold. Apparel and Footwear can be returned within 5 to 7 business days. Cancelling a Cash on Delivery order needs no refund because no money has been collected. be returned or exchanged, although a damaged item can still be claimed within 48 hours.
+  sources: ['01_return_window_by_category::fixed::0', '06_order_cancellation_policy::fixed::2', '11_international_shipping_restrictions::fixed::2']
+
+Q: How long does a refund take for a cash on delivery order?
+  top-1 sim = 0.828  -> ANSWERED
+  A: According to our policy: 5 to 7 business days. Cancelling a Cash on Delivery order needs no refund because no money has been collected. Refunds for Cash on Delivery orders are paid by bank transfer, since there is no card or wallet to credit. The customer must share valid bank account details in the app after the return is approved. Once the returned item shipped it can no longer be cancelled, and the customer should refuse delivery or request a return after receiving it. Prepaid cancellations are refunded to the original payment method within 5 to 7 business days. Cancelling a Cash on Delivery
+  sources: ['06_order_cancellation_policy::fixed::2', '02_cod_refund_timelines::fixed::0', '06_order_cancellation_policy::fixed::1']
+
+Q: Can I cancel my order after it has shipped?
+  top-1 sim = 0.720  -> ANSWERED
+  A: According to our policy: An order can be cancelled free of charge until it is shipped, so orders in Placed status can be cancelled instantly from the My Orders page. Once an order has shipped it can no longer be cancelled, and the customer shipped it can no longer be cancelled, and the customer should refuse delivery or request a return after receiving it. Prepaid cancellations are refunded to the original payment method within 5 to 7 business days. Cancelling a Cash on Delivery 5 to 7 business days. Cancelling a Cash on Delivery order needs no refund because no money has been collected.
+  sources: ['06_order_cancellation_policy::fixed::0', '06_order_cancellation_policy::fixed::1', '06_order_cancellation_policy::fixed::2']
+
+Q: What warranty comes with a trimmer?
+  top-1 sim = 0.494  -> ANSWERED
+  A: According to our policy: Warranty applies mainly to Electronics and select Home appliances, and it covers manufacturing defects only. Electronics such as trimmers, straighteners and hair dryers carry a 12-month brand warranty from the date of delivery. Home appliances carry a 6-month warranty. Apparel, date of delivery. Home appliances carry a 6-month warranty. Apparel, Footwear and Beauty products have no warranty, although a manufacturing defect found inside the return window qualifies for a free replacement. Damage caused by water, drops or unauthorised repair voids replacement. Damage caused by water, drops or unauthorised repair voids the warranty.
+  sources: ['05_warranty_terms_by_category::fixed::0', '05_warranty_terms_by_category::fixed::1', '05_warranty_terms_by_category::fixed::2']
+
+Q: My parcel arrived broken, what should I do?
+  top-1 sim = 0.576  -> ANSWERED
+  A: According to our policy: Damaged, defective or wrong items must be reported within 48 hours of delivery through the Help section of the app. The customer uploads clear photos of the product, the outer packaging and the shipping label. After verification within 2 business be returned or exchanged, although a damaged item can still be claimed within 48 hours. safety rules. International orders cannot be paid for with Cash on Delivery, and the customer is responsible for any import duties and taxes charged at the destination. International orders cannot be returned or exchanged, although a damaged item can still
+  sources: ['10_damaged_item_claim_process::fixed::0', '11_international_shipping_restrictions::fixed::2', '11_international_shipping_restrictions::fixed::1']
+
+Q: Can I swap my sandals for a bigger size?
+  top-1 sim = 0.426  -> ANSWERED
+  A: According to our policy: Size exchanges are available for Apparel and Footwear within 15 days of delivery, subject to stock in the requested size. The item must be unworn and unwashed, with its tags attached. Only one size exchange is allowed per order item, attached. Only one size exchange is allowed per order item, and the replacement is delivered free of cost once the pickup is complete. If the requested size is out of stock, the customer can choose a refund instead.
+  sources: ['09_size_exchange_policy::fixed::0', '09_size_exchange_policy::fixed::1']
+
+Q: My shoes do not fit, can you pick them up and refund me?
+  top-1 sim = 0.425  -> ANSWERED
+  A: According to our policy: cannot be resold. Apparel and Footwear can be returned within 15 days if they are unworn, unwashed and have all tags attached. Home products have a 10-day return window, and Electronics have a 7-day window with original packaging and all Size exchanges are available for Apparel and Footwear within 15 days of delivery, subject to stock in the requested size. The item must be unworn and unwashed, with its tags attached. Only one size exchange is allowed per order item, Reverse pickup is available for eligible returns at most serviceable pin codes. An item is eligible if it is inside its category return window and is not on the non-returnable list, which includes opened Beauty products, innerwear and gift cards.
+  sources: ['01_return_window_by_category::fixed::1', '09_size_exchange_policy::fixed::0', '04_reverse_pickup_eligibility::fixed::0']
+
+Q: What is the best movie of the year?
+  top-1 sim = 0.123  -> FALLBACK (I don't know)
+  A: I don't have enough information in the Nykaa policy knowledge base to answer that. Please contact customer support.
