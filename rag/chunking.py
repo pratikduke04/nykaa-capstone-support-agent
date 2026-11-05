@@ -8,13 +8,16 @@ Task 3 - load the knowledge base and split it with two chunking strategies.
 Every chunk keeps its parent doc_id so Task 5 can map chunks back to documents.
 """
 import re
-from rag.config import KB_DIR, FIXED_CHUNK_WORDS, FIXED_OVERLAP_WORDS
+from rag.config import KB_DIR, KB_ADDED_DIR, FIXED_CHUNK_WORDS, FIXED_OVERLAP_WORDS
 
 
 def load_documents(kb_dir=KB_DIR) -> list[dict]:
     """Read every .md file. First line '# Title' is the title; the rest is the body."""
     docs = []
-    for path in sorted(kb_dir.glob("*.md")):
+    paths = sorted(kb_dir.glob("*.md"))
+    if kb_dir == KB_DIR and KB_ADDED_DIR.exists():          # documents added through the API
+        paths += sorted(KB_ADDED_DIR.glob("*.md"))
+    for path in paths:
         lines = path.read_text(encoding="utf-8").strip().splitlines()
         title = lines[0].lstrip("# ").strip()
         body = " ".join(line.strip() for line in lines[1:] if line.strip())

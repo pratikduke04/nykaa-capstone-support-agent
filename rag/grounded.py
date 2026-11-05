@@ -18,11 +18,16 @@ FALLBACK_ANSWER = ("I don't have enough information in the Nykaa policy knowledg
 _client = None
 
 
-def _col(name):
+def shared_client():
+    """Create the ChromaDB client once and reuse it everywhere."""
     global _client
     if _client is None:
         _client = get_client()
-    return get_collection(_client, name)
+    return _client
+
+
+def _col(name):
+    return get_collection(shared_client(), name)
 
 
 def retrieve(query: str, collection_name: str = COLLECTION_SENTENCE, k: int = TOP_K) -> list[dict]:

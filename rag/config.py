@@ -3,6 +3,7 @@ from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 KB_DIR = PROJECT_ROOT / "kb"
+KB_ADDED_DIR = PROJECT_ROOT / "kb_added"
 CHROMA_DIR = PROJECT_ROOT / "chroma_db"
 
 EMBED_MODEL = "all-MiniLM-L6-v2"      # small, free, runs locally on CPU
