@@ -1,4 +1,4 @@
-# command: python -m rag.chunking   (exit code 0, 0.1s)
+# command: python -m rag.chunking   (exit code 0, 0.2s)
 Documents: 12
 Fixed-size chunks (40 words, 10 overlap): 33
 Sentence chunks: 49

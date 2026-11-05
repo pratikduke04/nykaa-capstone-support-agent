@@ -1,4 +1,4 @@
-# command: python -m governance.demo_governance   (exit code 0, 12.7s)
+# command: python -m governance.demo_governance   (exit code 0, 13.1s)
 ##############################################################################
 PART A - LEAST AUTONOMY: only the Lookup Agent may call check_order_status
 ##############################################################################

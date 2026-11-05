@@ -3,37 +3,37 @@
 ===== python -m rag.chunking =====
 
 ===== python -m rag.index =====
-W1105 18:23:32.043000 28211 .venv/lib/python3.11/site-packages/torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+W1105 18:44:46.109000 34736 .venv/lib/python3.11/site-packages/torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
 
 Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]
-Loading weights: 100%|██████████| 103/103 [00:00<00:00, 8900.15it/s]
+Loading weights: 100%|██████████| 103/103 [00:00<00:00, 8717.86it/s]
 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
 
 ===== python -m rag.calibrate =====
-W1105 18:23:43.261000 28301 .venv/lib/python3.11/site-packages/torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+W1105 18:44:59.826000 34926 .venv/lib/python3.11/site-packages/torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
 
 Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]
-Loading weights: 100%|██████████| 103/103 [00:00<00:00, 20669.50it/s]
+Loading weights: 100%|██████████| 103/103 [00:00<00:00, 27198.02it/s]
 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
 
 ===== python -m rag.grounded =====
-W1105 18:23:53.530000 28353 .venv/lib/python3.11/site-packages/torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+W1105 18:45:09.052000 34982 .venv/lib/python3.11/site-packages/torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
 
 Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]
-Loading weights: 100%|██████████| 103/103 [00:00<00:00, 21111.92it/s]
+Loading weights: 100%|██████████| 103/103 [00:00<00:00, 38476.43it/s]
 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
 
 ===== python -m rag.evaluate_chunking =====
-W1105 18:24:04.225000 28403 .venv/lib/python3.11/site-packages/torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+W1105 18:45:18.191000 35038 .venv/lib/python3.11/site-packages/torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
 
 Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]
-Loading weights: 100%|██████████| 103/103 [00:00<00:00, 15209.59it/s]
+Loading weights: 100%|██████████| 103/103 [00:00<00:00, 29726.37it/s]
 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
 
 ===== python -m crew.order_status =====
 
 ===== python -m crew.demo_part2 crew =====
-W1105 18:24:17.414000 28450 .venv/lib/python3.11/site-packages/torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+W1105 18:45:32.824000 35098 .venv/lib/python3.11/site-packages/torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
 /Users/pratik.arora/Documents/nykaa-support-agent/crew/pipeline.py:60: LangChainDeprecationWarning: RunnableWithMessageHistory is deprecated. Use LangGraph's built-in persistence instead.
   chain = build_chain(lambda inputs: _inner(inputs, runner))
 /Users/pratik.arora/Documents/nykaa-support-agent/crew/memory.py:20: LangChainDeprecationWarning: The class `InMemoryChatMessageHistory` was deprecated in LangChain 1.6.4 and will be removed in 2.0.0 See the short-term memory documentation for recommended alternatives: https://docs.langchain.com/oss/python/langchain/short-term-memory
@@ -41,7 +41,7 @@ W1105 18:24:17.414000 28450 .venv/lib/python3.11/site-packages/torch/distributed
 Using an approximate input token count for model 'mock-llm': assuming one token per four characters because a native token count is unavailable.
 
 Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]
-Loading weights: 100%|██████████| 103/103 [00:00<00:00, 21660.23it/s]
+Loading weights: 100%|██████████| 103/103 [00:00<00:00, 16351.13it/s]
 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
 Using an approximate input token count for model 'mock-llm': assuming one token per four characters because a native token count is unavailable.
 Using an approximate input token count for model 'mock-llm': assuming one token per four characters because a native token count is unavailable.
@@ -54,7 +54,7 @@ Using an approximate input token count for model 'mock-llm': assuming one token 
 Using an approximate input token count for model 'mock-llm': assuming one token per four characters because a native token count is unavailable.
 
 ===== python -m crew.demo_part2 memory =====
-W1105 18:24:28.666000 28502 .venv/lib/python3.11/site-packages/torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+W1105 18:45:46.367000 35205 .venv/lib/python3.11/site-packages/torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
 /Users/pratik.arora/Documents/nykaa-support-agent/crew/pipeline.py:60: LangChainDeprecationWarning: RunnableWithMessageHistory is deprecated. Use LangGraph's built-in persistence instead.
   chain = build_chain(lambda inputs: _inner(inputs, runner))
 /Users/pratik.arora/Documents/nykaa-support-agent/crew/memory.py:20: LangChainDeprecationWarning: The class `InMemoryChatMessageHistory` was deprecated in LangChain 1.6.4 and will be removed in 2.0.0 See the short-term memory documentation for recommended alternatives: https://docs.langchain.com/oss/python/langchain/short-term-memory
@@ -62,7 +62,7 @@ W1105 18:24:28.666000 28502 .venv/lib/python3.11/site-packages/torch/distributed
 Using an approximate input token count for model 'mock-llm': assuming one token per four characters because a native token count is unavailable.
 
 Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]
-Loading weights: 100%|██████████| 103/103 [00:00<00:00, 14432.19it/s]
+Loading weights: 100%|██████████| 103/103 [00:00<00:00, 18741.63it/s]
 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
 Using an approximate input token count for model 'mock-llm': assuming one token per four characters because a native token count is unavailable.
 Using an approximate input token count for model 'mock-llm': assuming one token per four characters because a native token count is unavailable.
@@ -82,7 +82,7 @@ Using an approximate input token count for model 'mock-llm': assuming one token 
 Using an approximate input token count for model 'mock-llm': assuming one token per four characters because a native token count is unavailable.
 
 ===== python -m crew.demo_part2 memory_fresh =====
-W1105 18:24:41.656000 28570 .venv/lib/python3.11/site-packages/torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+W1105 18:45:59.172000 35272 .venv/lib/python3.11/site-packages/torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
 /Users/pratik.arora/Documents/nykaa-support-agent/crew/pipeline.py:60: LangChainDeprecationWarning: RunnableWithMessageHistory is deprecated. Use LangGraph's built-in persistence instead.
   chain = build_chain(lambda inputs: _inner(inputs, runner))
 /Users/pratik.arora/Documents/nykaa-support-agent/crew/memory.py:20: LangChainDeprecationWarning: The class `InMemoryChatMessageHistory` was deprecated in LangChain 1.6.4 and will be removed in 2.0.0 See the short-term memory documentation for recommended alternatives: https://docs.langchain.com/oss/python/langchain/short-term-memory
@@ -90,13 +90,13 @@ W1105 18:24:41.656000 28570 .venv/lib/python3.11/site-packages/torch/distributed
 Using an approximate input token count for model 'mock-llm': assuming one token per four characters because a native token count is unavailable.
 
 Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]
-Loading weights: 100%|██████████| 103/103 [00:00<00:00, 37361.70it/s]
+Loading weights: 100%|██████████| 103/103 [00:00<00:00, 21705.94it/s]
 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
 Using an approximate input token count for model 'mock-llm': assuming one token per four characters because a native token count is unavailable.
 Using an approximate input token count for model 'mock-llm': assuming one token per four characters because a native token count is unavailable.
 
 ===== python -m crew.demo_part2 guardrails =====
-W1105 18:24:53.173000 28624 .venv/lib/python3.11/site-packages/torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+W1105 18:46:11.824000 35347 .venv/lib/python3.11/site-packages/torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
 /Users/pratik.arora/Documents/nykaa-support-agent/crew/pipeline.py:60: LangChainDeprecationWarning: RunnableWithMessageHistory is deprecated. Use LangGraph's built-in persistence instead.
   chain = build_chain(lambda inputs: _inner(inputs, runner))
 /Users/pratik.arora/Documents/nykaa-support-agent/crew/memory.py:20: LangChainDeprecationWarning: The class `InMemoryChatMessageHistory` was deprecated in LangChain 1.6.4 and will be removed in 2.0.0 See the short-term memory documentation for recommended alternatives: https://docs.langchain.com/oss/python/langchain/short-term-memory
@@ -104,7 +104,7 @@ W1105 18:24:53.173000 28624 .venv/lib/python3.11/site-packages/torch/distributed
 Using an approximate input token count for model 'mock-llm': assuming one token per four characters because a native token count is unavailable.
 
 Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]
-Loading weights: 100%|██████████| 103/103 [00:00<00:00, 21648.29it/s]
+Loading weights: 100%|██████████| 103/103 [00:00<00:00, 26108.26it/s]
 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
 Using an approximate input token count for model 'mock-llm': assuming one token per four characters because a native token count is unavailable.
 Using an approximate input token count for model 'mock-llm': assuming one token per four characters because a native token count is unavailable.
@@ -117,7 +117,7 @@ Using an approximate input token count for model 'mock-llm': assuming one token 
 Using an approximate input token count for model 'mock-llm': assuming one token per four characters because a native token count is unavailable.
 
 ===== python -m api.demo_api =====
-W1105 18:25:04.705000 28679 .venv/lib/python3.11/site-packages/torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+W1105 18:46:24.924000 35401 .venv/lib/python3.11/site-packages/torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
 /Users/pratik.arora/Documents/nykaa-support-agent/crew/pipeline.py:60: LangChainDeprecationWarning: RunnableWithMessageHistory is deprecated. Use LangGraph's built-in persistence instead.
   chain = build_chain(lambda inputs: _inner(inputs, runner))
 /Users/pratik.arora/Documents/nykaa-support-agent/crew/memory.py:20: LangChainDeprecationWarning: The class `InMemoryChatMessageHistory` was deprecated in LangChain 1.6.4 and will be removed in 2.0.0 See the short-term memory documentation for recommended alternatives: https://docs.langchain.com/oss/python/langchain/short-term-memory
@@ -125,7 +125,7 @@ W1105 18:25:04.705000 28679 .venv/lib/python3.11/site-packages/torch/distributed
 Using an approximate input token count for model 'mock-llm': assuming one token per four characters because a native token count is unavailable.
 
 Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]
-Loading weights: 100%|██████████| 103/103 [00:00<00:00, 16139.17it/s]
+Loading weights: 100%|██████████| 103/103 [00:00<00:00, 9964.10it/s]
 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
 Using an approximate input token count for model 'mock-llm': assuming one token per four characters because a native token count is unavailable.
 Using an approximate input token count for model 'mock-llm': assuming one token per four characters because a native token count is unavailable.
@@ -172,7 +172,7 @@ Using an approximate input token count for model 'mock-llm': assuming one token 
 Using an approximate input token count for model 'mock-llm': assuming one token per four characters because a native token count is unavailable.
 
 ===== python -m eval.run_eval =====
-W1105 18:25:18.007000 28773 .venv/lib/python3.11/site-packages/torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+W1105 18:46:37.852000 35493 .venv/lib/python3.11/site-packages/torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
 /Users/pratik.arora/Documents/nykaa-support-agent/crew/pipeline.py:60: LangChainDeprecationWarning: RunnableWithMessageHistory is deprecated. Use LangGraph's built-in persistence instead.
   chain = build_chain(lambda inputs: _inner(inputs, runner))
 /Users/pratik.arora/Documents/nykaa-support-agent/crew/memory.py:20: LangChainDeprecationWarning: The class `InMemoryChatMessageHistory` was deprecated in LangChain 1.6.4 and will be removed in 2.0.0 See the short-term memory documentation for recommended alternatives: https://docs.langchain.com/oss/python/langchain/short-term-memory
@@ -180,7 +180,7 @@ W1105 18:25:18.007000 28773 .venv/lib/python3.11/site-packages/torch/distributed
 Using an approximate input token count for model 'mock-llm': assuming one token per four characters because a native token count is unavailable.
 
 Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]
-Loading weights: 100%|██████████| 103/103 [00:00<00:00, 40030.89it/s]
+Loading weights: 100%|██████████| 103/103 [00:00<00:00, 18631.70it/s]
 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
 Using an approximate input token count for model 'mock-llm': assuming one token per four characters because a native token count is unavailable.
 Using an approximate input token count for model 'mock-llm': assuming one token per four characters because a native token count is unavailable.
@@ -229,7 +229,7 @@ Using an approximate input token count for model 'mock-llm': assuming one token 
 Using an approximate input token count for model 'mock-llm': assuming one token per four characters because a native token count is unavailable.
 
 ===== python -m review.autogen_review =====
-W1105 18:25:31.254000 28825 .venv/lib/python3.11/site-packages/torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+W1105 18:46:51.431000 35551 .venv/lib/python3.11/site-packages/torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
 /Users/pratik.arora/Documents/nykaa-support-agent/crew/pipeline.py:60: LangChainDeprecationWarning: RunnableWithMessageHistory is deprecated. Use LangGraph's built-in persistence instead.
   chain = build_chain(lambda inputs: _inner(inputs, runner))
 /Users/pratik.arora/Documents/nykaa-support-agent/crew/memory.py:20: LangChainDeprecationWarning: The class `InMemoryChatMessageHistory` was deprecated in LangChain 1.6.4 and will be removed in 2.0.0 See the short-term memory documentation for recommended alternatives: https://docs.langchain.com/oss/python/langchain/short-term-memory
@@ -237,7 +237,7 @@ W1105 18:25:31.254000 28825 .venv/lib/python3.11/site-packages/torch/distributed
 Using an approximate input token count for model 'mock-llm': assuming one token per four characters because a native token count is unavailable.
 
 Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]
-Loading weights: 100%|██████████| 103/103 [00:00<00:00, 39923.60it/s]
+Loading weights: 100%|██████████| 103/103 [00:00<00:00, 37035.00it/s]
 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
 Using an approximate input token count for model 'mock-llm': assuming one token per four characters because a native token count is unavailable.
 Using an approximate input token count for model 'mock-llm': assuming one token per four characters because a native token count is unavailable.
@@ -250,7 +250,7 @@ Using an approximate input token count for model 'mock-llm': assuming one token 
 Using an approximate input token count for model 'mock-llm': assuming one token per four characters because a native token count is unavailable.
 
 ===== python -m governance.demo_governance =====
-W1105 18:25:42.890000 28898 .venv/lib/python3.11/site-packages/torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+W1105 18:47:04.439000 35629 .venv/lib/python3.11/site-packages/torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
 /Users/pratik.arora/Documents/nykaa-support-agent/crew/pipeline.py:60: LangChainDeprecationWarning: RunnableWithMessageHistory is deprecated. Use LangGraph's built-in persistence instead.
   chain = build_chain(lambda inputs: _inner(inputs, runner))
 /Users/pratik.arora/Documents/nykaa-support-agent/crew/memory.py:20: LangChainDeprecationWarning: The class `InMemoryChatMessageHistory` was deprecated in LangChain 1.6.4 and will be removed in 2.0.0 See the short-term memory documentation for recommended alternatives: https://docs.langchain.com/oss/python/langchain/short-term-memory
@@ -258,7 +258,7 @@ W1105 18:25:42.890000 28898 .venv/lib/python3.11/site-packages/torch/distributed
 Using an approximate input token count for model 'mock-llm': assuming one token per four characters because a native token count is unavailable.
 
 Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]
-Loading weights: 100%|██████████| 103/103 [00:00<00:00, 40220.96it/s]
+Loading weights: 100%|██████████| 103/103 [00:00<00:00, 34672.02it/s]
 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
 Using an approximate input token count for model 'mock-llm': assuming one token per four characters because a native token count is unavailable.
 Using an approximate input token count for model 'mock-llm': assuming one token per four characters because a native token count is unavailable.
@@ -274,9 +274,9 @@ Using an approximate input token count for model 'mock-llm': assuming one token 
 Using an approximate input token count for model 'mock-llm': assuming one token per four characters because a native token count is unavailable.
 
 ===== python -m rag.demo_cache =====
-W1105 18:25:54.188000 28977 .venv/lib/python3.11/site-packages/torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+W1105 18:47:14.955000 35693 .venv/lib/python3.11/site-packages/torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
 
 Loading weights:   0%|          | 0/103 [00:00<?, ?it/s]
-Loading weights: 100%|██████████| 103/103 [00:00<00:00, 21414.36it/s]
+Loading weights: 100%|██████████| 103/103 [00:00<00:00, 18060.76it/s]
 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
 

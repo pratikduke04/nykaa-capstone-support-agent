@@ -1,38 +1,38 @@
-# command: python -m rag.demo_cache   (exit code 0, 12.2s)
+# command: python -m rag.demo_cache   (exit code 0, 11.8s)
 === BEFORE: answer_query() called directly (no cache) ===
-     74.1 ms  fallback=False  'What is the return window for apparel?'
-     10.1 ms  fallback=False  'How long does a COD refund take?'
-      8.0 ms  fallback=False  'what is the return window for apparel?'
-      8.7 ms  fallback=False  'Can I cancel my order after it has shipped?'
-      5.9 ms  fallback=False  'HOW LONG DOES A COD REFUND TAKE?'
-      4.7 ms  fallback=False  'What is the return window for apparel?'
-      5.9 ms  fallback=False  'Can I cancel my order   after it has shipped?'
-      4.5 ms  fallback=False  'WHAT IS THE RETURN WINDOW FOR APPAREL?'
-     58.8 ms  fallback=False  'Do you ship to Mars?'
-      8.7 ms  fallback=False  'do you ship to mars?'
-      8.0 ms  fallback=False  'How long does a COD refund take?'
-      4.9 ms  fallback=False  'can i cancel my order after it has shipped?'
-  -> 12 requests, 12 embedding+search+generation runs, 202 ms total
+     83.4 ms  fallback=False  'What is the return window for apparel?'
+     11.1 ms  fallback=False  'How long does a COD refund take?'
+      9.0 ms  fallback=False  'what is the return window for apparel?'
+     14.3 ms  fallback=False  'Can I cancel my order after it has shipped?'
+     10.2 ms  fallback=False  'HOW LONG DOES A COD REFUND TAKE?'
+      7.6 ms  fallback=False  'What is the return window for apparel?'
+     16.1 ms  fallback=False  'Can I cancel my order   after it has shipped?'
+      7.8 ms  fallback=False  'WHAT IS THE RETURN WINDOW FOR APPAREL?'
+     99.4 ms  fallback=False  'Do you ship to Mars?'
+      8.9 ms  fallback=False  'do you ship to mars?'
+      7.4 ms  fallback=False  'How long does a COD refund take?'
+      7.2 ms  fallback=False  'can i cancel my order after it has shipped?'
+  -> 12 requests, 12 embedding+search+generation runs, 282 ms total
 
 === AFTER: cached_answer_query() (cache keyed by normalized query) ===
-      5.4 ms  MISS  key='what is the return window for apparel?'
-      4.0 ms  MISS  key='how long does a cod refund take?'
+      7.1 ms  MISS  key='what is the return window for apparel?'
+      7.2 ms  MISS  key='how long does a cod refund take?'
       0.0 ms  HIT   key='what is the return window for apparel?'
-      4.3 ms  MISS  key='can i cancel my order after it has shipped?'
+      6.2 ms  MISS  key='can i cancel my order after it has shipped?'
       0.0 ms  HIT   key='how long does a cod refund take?'
       0.0 ms  HIT   key='what is the return window for apparel?'
       0.0 ms  HIT   key='can i cancel my order after it has shipped?'
       0.0 ms  HIT   key='what is the return window for apparel?'
-      4.5 ms  MISS  key='do you ship to mars?'
+      6.9 ms  MISS  key='do you ship to mars?'
       0.0 ms  HIT   key='do you ship to mars?'
       0.0 ms  HIT   key='how long does a cod refund take?'
       0.0 ms  HIT   key='can i cancel my order after it has shipped?'
-  -> 12 requests, 4 embedding+search+generation runs, 18 ms total
+  -> 12 requests, 4 embedding+search+generation runs, 27 ms total
   -> cache hits=8 misses=4 entries=4
 
 === EVIDENCE ===
   grounded-generation runs : 12 -> 4   (8 avoided)
-  total time               : 202 ms -> 18 ms   (11.1x faster)
+  total time               : 282 ms -> 27 ms   (10.3x faster)
   every cached answer identical to the uncached one: True   
 
 === INVALIDATION: the cache is cleared when the knowledge base changes ===

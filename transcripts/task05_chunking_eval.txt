@@ -1,4 +1,4 @@
-# command: python -m rag.evaluate_chunking   (exit code 0, 10.9s)
+# command: python -m rag.evaluate_chunking   (exit code 0, 9.0s)
 ==========================================================================================
 Q1: How many days do I have to return a hair dryer?
     relevant docs = ['01']  (n = 1)

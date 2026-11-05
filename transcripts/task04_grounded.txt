@@ -1,4 +1,4 @@
-# command: python -m rag.grounded   (exit code 0, 10.6s)
+# command: python -m rag.grounded   (exit code 0, 9.1s)
 ==========================================================================================
 COLLECTION: kb_sentence   threshold = 0.26
 ==========================================================================================

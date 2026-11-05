@@ -1,4 +1,4 @@
-# command: python -m rag.calibrate   (exit code 0, 10.2s)
+# command: python -m rag.calibrate   (exit code 0, 9.5s)
 ================================================================================
 COLLECTION: kb_fixed
 ================================================================================

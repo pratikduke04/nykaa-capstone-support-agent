@@ -1,7 +1,9 @@
 .venv/
 __pycache__/
 *.pyc
-chroma_db/
 .DS_Store
+chroma_db/
+kb_added/
 logs/probe_*.txt
 logs/mock_trace.jsonl
+logs/run_all_stderr.log
