@@ -1,3 +1,4 @@
+# command: python -m eval.run_eval   (exit code 0, 13.2s)
 MOCK_LLM=1  queries=15  judge=MockJudgeLLM
 
 Q01  Return window by category

@@ -5,3 +5,5 @@ langchain-core
 fastapi
 uvicorn
 httpx
+autogen-agentchat 
+autogen-core

@@ -1,0 +1,53 @@
+# command: python -m review.autogen_review   (exit code 0, 12.1s)
+
+=== CASE A - grounded draft: expect APPROVE, answer unchanged ===
+[TextMessage from user]
+   Review this draft customer-support answer.
+   [[QUESTION]]What is the return window for apparel?[[/QUESTION]]
+   [[DRAFT]]According to our policy: Apparel and Footwear can be returned within 15 days if they are unworn, unwashed and have all tags attached. Home products have a 10-day return window, and Electronics have a 7-day window with original packaging and all accessories included. An item is eligible if it is inside i
+[TextMessage from fact_checker]
+   FACT-CHECK REPORT: checked 3 sentence(s) against the retrieved evidence.
+   All sentences are supported by the evidence.
+   [[UNGROUNDED]][][[/UNGROUNDED]]
+[StructuredMessage[Verdict] from final_editor]
+   {'approved': True, 'final_answer': 'According to our policy: Apparel and Footwear can be returned within 15 days if they are unworn, unwashed and have all tags attached. Home products have a 10-day return window, and Electronics have a 7-day window with original packaging and all accessories included. An item is eligible if it is inside its category return window and is not on the non-returnable list, which includes opened Beauty products, innerwear and gift cards.', 'reason': 'Every sentence is supported by the retrieved evidence; the draft is unchanged.'}
+-> messages in the chat: 3 (task + 2 agent turns), model calls: ['REVIEWER', 'EDITOR']
+-> Verdict: approved=True
+   reason: Every sentence is supported by the retrieved evidence; the draft is unchanged.
+   check: final_answer == original draft  -> True
+
+=== CASE B - draft with an INJECTED ungrounded claim: expect REVISE ===
+[TextMessage from user]
+   Review this draft customer-support answer.
+   [[QUESTION]]What is the return window for apparel?[[/QUESTION]]
+   [[DRAFT]]According to our policy: Apparel and Footwear can be returned within 15 days if they are unworn, unwashed and have all tags attached. Home products have a 10-day return window, and Electronics have a 7-day window with original packaging and all accessories included. An item is eligible if it is inside i
+[TextMessage from fact_checker]
+   FACT-CHECK REPORT: checked 4 sentence(s) against the retrieved evidence.
+   UNSUPPORTED: Refunds are guaranteed within 24 hours for every order.
+   [[UNGROUNDED]]["Refunds are guaranteed within 24 hours for every order."][[/UNGROUNDED]]
+[StructuredMessage[Verdict] from final_editor]
+   {'approved': False, 'final_answer': 'According to our policy: Apparel and Footwear can be returned within 15 days if they are unworn, unwashed and have all tags attached. Home products have a 10-day return window, and Electronics have a 7-day window with original packaging and all accessories included. An item is eligible if it is inside its category return window and is not on the non-returnable list, which includes opened Beauty products, innerwear and gift cards.', 'reason': 'Removed 1 unsupported claim(s): Refunds are guaranteed within 24 hours for every order.'}
+-> messages in the chat: 3 (task + 2 agent turns), model calls: ['REVIEWER', 'EDITOR']
+-> Verdict: approved=False
+   reason: Removed 1 unsupported claim(s): Refunds are guaranteed within 24 hours for every order.
+   check: injected claim removed from final_answer -> True
+   check: final_answer == original grounded draft  -> True
+
+=== CASE C - order-status answer checked against the order record: expect APPROVE ===
+[TextMessage from user]
+   Review this draft customer-support answer.
+   [[QUESTION]]Where is my order NYK-1005?[[/QUESTION]]
+   [[DRAFT]]Order NYK-1005 is currently Returned (order value Rs 852). Our system recommends escalating it to the support team (escalation score 0.48).[[/DRAFT]]
+   [[EVIDENCE]][[/EVIDENCE]]
+   [[ORDER]]ORDER NYK-1005 | status Returned | order value 852 | escalation score 0.48 | escalate yes[[/ORDER]]
+[TextMessage from fact_checker]
+   FACT-CHECK REPORT: checked 2 sentence(s) against the retrieved evidence.
+   All sentences are supported by the evidence.
+   [[UNGROUNDED]][][[/UNGROUNDED]]
+[StructuredMessage[Verdict] from final_editor]
+   {'approved': True, 'final_answer': 'Order NYK-1005 is currently Returned (order value Rs 852). Our system recommends escalating it to the support team (escalation score 0.48).', 'reason': 'Every sentence is supported by the retrieved evidence; the draft is unchanged.'}
+-> messages in the chat: 3 (task + 2 agent turns), model calls: ['REVIEWER', 'EDITOR']
+-> Verdict: approved=True
+   reason: Every sentence is supported by the retrieved evidence; the draft is unchanged.
+
+Tokens used by the review stage (word-count estimate): A=677  B=718  C=239

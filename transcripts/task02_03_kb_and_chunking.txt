@@ -1,0 +1,17 @@
+# command: python -m rag.chunking   (exit code 0, 0.1s)
+Documents: 12
+Fixed-size chunks (40 words, 10 overlap): 33
+Sentence chunks: 49
+
+--- Example document: 01_return_window_by_category ---
+
+Fixed chunks:
+  [01_return_window_by_category::fixed::0] Return windows depend on the product category and start from the delivery date. Beauty items can be returned within 15 days only if the seal is unbroken, because opened cosmetics cannot be resold. Apparel and Footwear can be returned within
+  [01_return_window_by_category::fixed::1] cannot be resold. Apparel and Footwear can be returned within 15 days if they are unworn, unwashed and have all tags attached. Home products have a 10-day return window, and Electronics have a 7-day window with original packaging and all
+  [01_return_window_by_category::fixed::2] Electronics have a 7-day window with original packaging and all accessories included.
+
+Sentence chunks:
+  [01_return_window_by_category::sent::0] Return windows depend on the product category and start from the delivery date.
+  [01_return_window_by_category::sent::1] Beauty items can be returned within 15 days only if the seal is unbroken, because opened cosmetics cannot be resold.
+  [01_return_window_by_category::sent::2] Apparel and Footwear can be returned within 15 days if they are unworn, unwashed and have all tags attached.
+  [01_return_window_by_category::sent::3] Home products have a 10-day return window, and Electronics have a 7-day window with original packaging and all accessories included.

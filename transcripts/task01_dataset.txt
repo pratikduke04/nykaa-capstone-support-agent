@@ -1,3 +1,4 @@
+# command: python dataset.py   (exit code 0, 0.1s)
 Seed=42  Records=60
 
 Count per category:

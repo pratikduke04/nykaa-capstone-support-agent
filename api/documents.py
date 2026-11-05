@@ -55,6 +55,8 @@ def _refresh_caches():
     import crew.tools as tools
     tools._DOCS = None               # parent-document map used by the RAG tool
     compose._KB_STATS = None         # keyword statistics used by the composer
+    from rag import cache
+    cache.clear()                    # cached answers may be stale once the knowledge base changes
 
 
 def add_document(title: str, text: str) -> dict:
