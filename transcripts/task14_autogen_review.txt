@@ -1,4 +1,4 @@
-# command: python -m review.autogen_review   (exit code 0, 13.1s)
+# command: python -m review.autogen_review   (exit code 0, 10.0s)
 
 === CASE A - grounded draft: expect APPROVE, answer unchanged ===
 [TextMessage from user]

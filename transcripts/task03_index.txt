@@ -1,4 +1,4 @@
-# command: python -m rag.index   (exit code 0, 34.2s)
+# command: python -m rag.index   (exit code 0, 29.6s)
 Embedding model : all-MiniLM-L6-v2
 kb_fixed      : 33 chunks indexed
 kb_sentence   : 49 chunks indexed

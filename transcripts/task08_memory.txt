@@ -1,4 +1,4 @@
-# command: python -m crew.demo_part2 memory   (exit code 0, 12.5s)
+# command: python -m crew.demo_part2 memory   (exit code 0, 9.7s)
 
 ================================================================================================
 TASK 8: multi-turn conversation - state carried across turns (session 'alice')

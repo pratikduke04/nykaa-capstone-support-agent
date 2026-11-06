@@ -1,22 +1,22 @@
-# command: python -m api.demo_api   (exit code 0, 13.1s)
+# command: python -m api.demo_api   (exit code 0, 10.8s)
 
 === 1. GET /health ===
 {'status': 'ok', 'mock_llm': '1'}
 
 === 2. POST /ask - policy question ===
-HTTP 200  trace=5e7739915775
+HTTP 200  trace=b07f698ec162
   masked_question: What is the return window for apparel?
   intent=policy grounded=True tools=['rag_lookup'] sources=['01_return_window_by_category', '04_reverse_pickup_eligibility']
   answer: According to our policy: Apparel and Footwear can be returned within 15 days if they are unworn, unwashed and have all tags attached. Home products have a 10-day return window, and Electronics have a 7-day window with original packaging and all accessories included. An item is eligible if it is inside its category return window and is not on the non-returnable list, which includes opened Beauty products, innerwear and gift cards.
 
 === 3. POST /ask - order status ===
-HTTP 200  trace=fa8c2cbca4fe
+HTTP 200  trace=10880eb34cfd
   masked_question: Where is my order NYK-1005?
   intent=order grounded=True tools=['rag_lookup', 'check_order_status'] sources=[]
   answer: Order NYK-1005 is currently Returned (order value Rs 852). Our system recommends escalating it to the support team (escalation score 0.48).
 
 === 4. POST /ask - PII in the question (must be masked) ===
-HTTP 200  trace=c31c686fb7e0
+HTTP 200  trace=610426014883
   masked_question: My phone is [PHONE] and card [CARD_NUMBER], what is the refund timeline?
   intent=policy grounded=True tools=['rag_lookup'] sources=['02_cod_refund_timelines', '07_loyalty_points_redemption']
   answer: According to our policy: Refunds for Cash on Delivery orders are paid by bank transfer, since there is no card or wallet to credit. Once the returned item passes the quality check at the warehouse, the refund is started within 2 business days and reaches the bank account in 3 to 5 business days. Points earned on an order are reversed if that order is returned or refunded.
@@ -25,10 +25,10 @@ HTTP 200  trace=c31c686fb7e0
 HTTP 422
 
 === 6. POST /add-document - gift wrapping policy containing a phone number ===
-HTTP 201 {'trace_id': '0b3b9033f7cb', 'doc_id': '13_gift_wrapping_policy', 'title': 'Gift wrapping policy', 'chunks_fixed': 1, 'chunks_sentence': 3, 'pii_masked': {'phone': 1}}
+HTTP 201 {'trace_id': '92d2046dc82b', 'doc_id': '13_gift_wrapping_policy', 'title': 'Gift wrapping policy', 'chunks_fixed': 1, 'chunks_sentence': 3, 'pii_masked': {'phone': 1}}
 
 === 7. POST /ask - question answered from the new document ===
-HTTP 200  trace=fe3e80a4c2c7
+HTTP 200  trace=4b3ce947861a
   masked_question: How much does gift wrapping cost?
   intent=policy grounded=True tools=['rag_lookup'] sources=['13_gift_wrapping_policy']
   answer: According to our policy: Gift wrapping costs Rs 49 per item and is available on Beauty and Home orders. Gift wrapped orders cannot be returned without the wrapping.
@@ -39,7 +39,7 @@ HTTP 400 {'detail': 'Document rejected: it contains prompt-injection style instr
 === 9. DELETE original KB doc (protected -> 403), unknown doc (404), then added doc (200) ===
 403
 404
-200 {'trace_id': 'd0818cc23ec6', 'doc_id': '13_gift_wrapping_policy', 'deleted': True}
+200 {'trace_id': '2059d5bb872a', 'doc_id': '13_gift_wrapping_policy', 'deleted': True}
 
 === 10. WebSocket - multi-turn chat, then clean disconnect ===
 turn 1: order | Order NYK-1010 is currently Placed (order value Rs 1,384).
@@ -54,12 +54,12 @@ reply: According to our policy: Return windows depend on the product category an
 
 === 13. Request log (logs/requests.jsonl) - last 6 lines ===
 22 JSON lines written
-{"@timestamp": "2026-11-05T13:16:30.497+00:00", "channel": "websocket", "event": "message", "trace_id": "1f39f42794fa", "connection_id": "5306eb02640b", "session_id": "abrupt", "status_code": 200, "latency_ms": 57.02, "request_text": "What is the refund timeli
-{"@timestamp": "2026-11-05T13:16:30.501+00:00", "channel": "websocket", "event": "disconnect", "trace_id": "5306eb02640b", "session_id": "abrupt", "turns": 1}
-{"@timestamp": "2026-11-05T13:16:30.506+00:00", "channel": "websocket", "event": "connect", "trace_id": "6fd6fa1f7e2b", "session_id": "after"}
-{"@timestamp": "2026-11-05T13:16:30.565+00:00", "channel": "websocket", "event": "message", "trace_id": "263efdfcf433", "connection_id": "6fd6fa1f7e2b", "session_id": "after", "status_code": 200, "latency_ms": 55.4, "request_text": "What is the return window f
-{"@timestamp": "2026-11-05T13:16:30.569+00:00", "channel": "websocket", "event": "disconnect", "trace_id": "6fd6fa1f7e2b", "session_id": "after", "turns": 1}
-{"@timestamp": "2026-11-05T13:16:30.574+00:00", "channel": "http", "event": "request", "trace_id": "371267c5ab1e", "method": "GET", "path": "/health", "status_code": 200, "latency_ms": 0.45}
+{"@timestamp": "2026-11-06T07:17:34.124+00:00", "channel": "websocket", "event": "message", "trace_id": "c7af3d202e57", "connection_id": "7231e5834018", "session_id": "abrupt", "status_code": 200, "latency_ms": 48.32, "request_text": "What is the refund timeli
+{"@timestamp": "2026-11-06T07:17:34.124+00:00", "channel": "websocket", "event": "disconnect", "trace_id": "7231e5834018", "session_id": "abrupt", "turns": 1}
+{"@timestamp": "2026-11-06T07:17:34.129+00:00", "channel": "websocket", "event": "connect", "trace_id": "7e4f024349b9", "session_id": "after"}
+{"@timestamp": "2026-11-06T07:17:34.179+00:00", "channel": "websocket", "event": "message", "trace_id": "60b2226dc4f2", "connection_id": "7e4f024349b9", "session_id": "after", "status_code": 200, "latency_ms": 45.74, "request_text": "What is the return window 
+{"@timestamp": "2026-11-06T07:17:34.179+00:00", "channel": "websocket", "event": "disconnect", "trace_id": "7e4f024349b9", "session_id": "after", "turns": 1}
+{"@timestamp": "2026-11-06T07:17:34.184+00:00", "channel": "http", "event": "request", "trace_id": "e7ab256bcd60", "method": "GET", "path": "/health", "status_code": 200, "latency_ms": 0.45}
 
 === 14. PII leak check on the whole log file ===
   raw value '98765' present in log: False

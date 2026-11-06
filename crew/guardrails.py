@@ -20,7 +20,7 @@ CARD_MASKED_RE = re.compile(r"(?:[Xx*\u2022]{4}[\s-]?){1,3}\d{4}(?!\d)")
 CARD_LAST4_RE = re.compile(
     r"(?i)\b(ending(?:\s+(?:in|with))?|last\s*4(?:\s*digits?)?(?:\s+(?:are|is))?)\s*[:#-]?\s*\d{4}(?!\d)")
 PHONE_RE = re.compile(r"(?<!\d)(?:\+?91[\s-]?)?[6-9]\d{4}[\s-]?\d{5}(?!\d)")
-
+EMAIL_RE = re.compile(r"[\w.+-]+@[\w-]+(?:\.[\w-]+)+")
 
 def mask_pii(text: str) -> tuple[str, dict]:
     """Return (masked_text, {label: count}). Card patterns run before the phone pattern."""
@@ -31,7 +31,7 @@ def mask_pii(text: str) -> tuple[str, dict]:
         if n:
             hits[label] = hits.get(label, 0) + n
         return s
-
+    text = sub(EMAIL_RE, "[EMAIL]", "email", text)
     text = sub(CARD_FULL_RE, "[CARD_NUMBER]", "card_number", text)
     text = sub(CARD_MASKED_RE, "[CARD_LAST4]", "card_last4", text)
     text = sub(CARD_LAST4_RE, r"\1 [CARD_LAST4]", "card_last4", text)

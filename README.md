@@ -6,6 +6,37 @@ FastAPI service, an evaluation harness, an Autogen review stage and governance c
 
 **Runs entirely under `MOCK_LLM`: zero API keys, no paid services.** See "MOCK_LLM, API keys and telemetry" below.
 
+
+## Key choices at a glance
+
+| | |
+|---|---|
+| **Dataset seed** | **42** (60 orders, `NYK-1001` to `NYK-1060`) |
+| **Category weights** | Beauty 0.30, Apparel 0.25, Footwear 0.15, Home 0.15, Electronics 0.15 |
+| **Status weights** | Delivered 0.40, Shipped 0.20, Placed 0.15, Returned 0.15, Refunded 0.10 |
+| **Amount range** | **Rs 199 - Rs 14,999** overall (per-category ranges in the Task 1 section) |
+| **Delayed shipments** | 13 / 60 = **21.7 %** (required 10-30 %) |
+| **Measured thresholds** | `kb_fixed` **0.27**, `kb_sentence` **0.26** (calibrated, not preset) |
+| **Mock model, keys** | `MOCK_LLM=1`, **zero API keys**; `CREWAI_DISABLE_TELEMETRY=true` plus the tracing flags (details below) |
+
+## Where is the evidence for each task?
+
+| Task | What | Transcript in `transcripts/` |
+|---|---|---|
+| 1 | Dataset | `task01_dataset.txt` |
+| 2-3 | Knowledge base, two chunking strategies, two collections | `task02_03_kb_and_chunking.txt`, `task03_index.txt` |
+| 4 | Calibrated threshold, grounded generation | `task04_calibration.txt`, `task04_grounded.txt` |
+| 5 | Precision / recall comparison | `task05_chunking_eval.txt` |
+| 6 | `check_order_status` and escalation score | `task06_order_status.txt` |
+| 7, 9 | 3-agent crew, Pydantic structured output | `task07_09_crew.txt` |
+| 8 | LangChain session memory | `task08_memory.txt`, `task08_memory_fresh.txt` |
+| 10 | Guardrails | `task10_guardrails.txt` |
+| 11-12 | FastAPI, WebSocket, JSON-Lines log | `task11_12_api.txt`, plus `logs/requests.jsonl` |
+| 13 | LLM-as-judge evaluation | `task13_eval.txt`, plus `logs/eval_results.json` |
+| 14 | Autogen review team | `task14_autogen_review.txt` |
+| 15 | Least autonomy, risk, budget cap | `task15_governance.txt` |
+| 16 | Response cache | `task16_cache.txt` |
+
 ---
 
 ## Quick start (Windows, macOS, Linux)
@@ -43,6 +74,9 @@ To start the API: `uvicorn api.main:app --port 8000`, then open `http://localhos
 - The mock models are deterministic: `MockLLM` extends `crewai.llms.base_llm.BaseLLM` (CrewAI agents),
   `MockJudgeLLM` extends the same class (evaluation judge) and `MockChatClient` extends Autogen's
   `ChatCompletionClient` (review stage).
+- **How `MockLLM` decides what to do:** it reads only the model's own turns and the tool result, not CrewAI's instruction
+  template (which itself contains the word "Observation:"). It calls a tool if its own previous turn has not already, and
+  picks the arguments from the tool's argument schema (a `record_id` field means an order lookup), never from the tool's name.
 - Telemetry and tracing are switched off before CrewAI is imported (`crew/__init__.py`, and again in `run_all.py`):
 
   ```
@@ -121,8 +155,8 @@ The crew's retrieval tool therefore uses `kb_fixed` and expands hits to their pa
 - **Task 7 - 3-agent CrewAI crew (`crew/crew_builder.py`)**, run with `crew.kickoff()`: Retrieval Agent
   (only `rag_lookup`), Lookup Agent (only `check_order_status`), Response Composer (no tools).
 - **Task 8 - LangChain session memory (`crew/memory.py`)**: `RunnableWithMessageHistory` +
-  `InMemoryChatMessageHistory`. "Where is my order NYK-1010?" followed by "Can I return it?" carries the order
-  id forward (`task08_memory.txt`); a fresh session does not (`task08_memory_fresh.txt`).
+  `InMemoryChatMessageHistory`. "Where is my order NYK-1045?" followed by "Can I still cancel it?" carries the order
+  id forward ("... regarding order NYK-1045", `task08_memory.txt`); a fresh session does not (`task08_memory_fresh.txt`).
 - **Task 9 - Pydantic structured output (`crew/schemas.py`)**: every response is an `AnswerSchema`
   (intent, answer, grounded, top_similarity, sources, order, escalate), validated in code.
 - **Task 10 - guardrails (`crew/guardrails.py`)**: input side masks PII (phone, card numbers / last-4) and blocks
@@ -140,8 +174,10 @@ The crew's retrieval tool therefore uses `kb_fixed` and expands hits to their pa
 | `WS /ws/chat?session_id=...` | Multi-turn chat; client disconnects (clean or abrupt) end only that connection |
 
 Every request writes one JSON line to `logs/requests.jsonl` with `@timestamp`, `trace_id` and `latency_ms`
-(also returned in the `X-Trace-Id` header). **The request text is logged only after PII masking**, and the
+(also returned in the `X-Trace-Id` header). **The request text is logged only after PII masking** (phone numbers, card numbers / last-4 and e-mail addresses), and the
 logger masks every string a second time; the demo greps the whole log for the raw phone and card values.
+The guardrail transcripts deliberately show *made-up* test values next to their masked form to prove masking works;
+`logs/requests.jsonl` and `logs/eval_results.json` contain masked text only.
 
 ### Task 13 - LLM-as-judge evaluation (`eval/`, `task13_eval.txt`)
 15 queries: one per knowledge-base topic (12), one out-of-scope, one prompt injection, and one order-status
@@ -216,6 +252,10 @@ document that now answers it (demonstrated in the same transcript).
   A real LLM judge could assess paraphrases; the judge interface (JSON verdict) is designed so one can replace it.
 - **The Autogen Fact-Checker is a heuristic** (sentence must appear in the evidence, order sentences must match the
   order record). It cannot judge paraphrased claims.
+- **The review, budget and cache stages are demonstrated as stand-alone stages**, each with its own demo and transcript.
+  The live `/ask` endpoint runs input guardrails -> crew -> output guardrail; it is not wired through the Autogen
+  review, the budget gate or the cache (`governance.governed.governed_answer` shows the budget and risk gate in front of the pipeline).
+- **PII masking covers phone numbers, card numbers / last-4 and e-mail addresses.** It does not detect names or street addresses.
 - **Token counts are estimates** (characters / 4 or word counts); there is no real tokenizer or billing.
 - **`/add-document` and `DELETE /documents/{id}` are unauthenticated.** They are scored High risk and need
   authentication before any real deployment.

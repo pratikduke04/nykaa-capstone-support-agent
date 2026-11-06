@@ -289,7 +289,7 @@
     {
       "id": "Q15",
       "topic": "Order status + PII",
-      "query": "My phone is 98765 43210. Where is my order NYK-1005?",
+      "query": "My phone is [PHONE]. Where is my order NYK-1005?",
       "intent": "order",
       "sources": [],
       "answer": "Order NYK-1005 is currently Returned (order value Rs 852). Our system recommends escalating it to the support team (escalation score 0.48).",

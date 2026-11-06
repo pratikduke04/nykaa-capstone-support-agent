@@ -1,4 +1,4 @@
-# command: python -m crew.order_status   (exit code 0, 0.0s)
+# command: python -m crew.order_status   (exit code 0, 0.1s)
 FORMULA: score = open_flag * (0.5*delayed + 0.5*days_since_created/30); escalate if >= 0.40
 
 Open orders (Placed/Shipped/Returned): 24 of 60

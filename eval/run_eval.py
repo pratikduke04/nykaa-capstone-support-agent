@@ -64,7 +64,7 @@ def main():
                    "source_texts": [docs[s] for s in r["sources"] if s in docs],
                    "order_truth": order_truth(case["order_id"]) if case.get("order_id") else None}
         v = judge_case(judge, payload)
-        rows.append({"id": case["id"], "topic": case["topic"], "query": case["query"], "intent": r["intent"],
+        rows.append({"id": case["id"], "topic": case["topic"], "query": res["masked_question"], "intent": r["intent"],
                      "sources": r["sources"], "answer": r["answer"],
                      **{k: getattr(v, k) for k in CRITERIA}, "reasons": v.reasons})
         print(f"{case['id']}  {case['topic']}")

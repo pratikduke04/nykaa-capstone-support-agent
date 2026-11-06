@@ -1,4 +1,4 @@
-# command: python -m crew.demo_part2 memory_fresh   (exit code 0, 12.7s)
+# command: python -m crew.demo_part2 memory_fresh   (exit code 0, 9.9s)
 
 ================================================================================================
 TASK 8: SEPARATE fresh conversation - no state carried over (session 'bob')

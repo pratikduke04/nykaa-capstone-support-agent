@@ -1,4 +1,4 @@
-# command: python -m crew.demo_part2 crew   (exit code 0, 16.8s)
+# command: python -m crew.demo_part2 crew   (exit code 0, 13.3s)
 
 ================================================================================================
 TASK 7 + 9: CrewAI crew (Retrieval, Lookup, Composer) run via crew.kickoff()
